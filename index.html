@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="theme-color" content="#C8001A"/>
+<title>El Arco de la Higiene – EMBOL</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+:root{--r:#C8001A;--r2:#9a0014;--gold:#FFD700;--dk:#060002;--card:rgba(10,0,3,0.93);--green:#156800;--ff:'Montserrat',sans-serif;--fb:'Bebas Neue',sans-serif;}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:var(--ff);}
+#G{width:100%;height:100%;max-width:520px;margin:0 auto;position:relative;overflow:hidden;background:linear-gradient(180deg,#060002 0%,#4a0010 42%,#156800 72%,#0a3300 100%);}
+.scr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;overflow-x:hidden;padding-bottom:16px;}
+.scr.H{display:none!important;}
+.brand{display:flex;align-items:center;justify-content:center;gap:14px;padding:18px 0 8px;}
+.logo-e{width:58px;height:58px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(200,0,26,.5);}
+.logo-cc{background:var(--r);border-radius:9px;padding:6px 12px;display:flex;flex-direction:column;align-items:center;}
+.cc-s{font-family:'Georgia',serif;font-style:italic;font-weight:900;font-size:18px;color:#fff;}
+.cc-t{font-size:7px;color:rgba(255,255,255,.85);font-weight:800;letter-spacing:2.5px;margin-top:1px;display:block;}
+.gtitle{font-family:var(--fb);font-size:38px;color:#fff;line-height:1;text-align:center;text-shadow:0 3px 14px #000;padding:0 16px;}
+.gtitle span{color:var(--r);}
+.gsub{color:#ffcccc;font-size:11px;text-align:center;margin:3px 0 12px;}
+.fcard{background:var(--card);border:1.5px solid rgba(200,0,26,.4);border-radius:15px;padding:16px 18px;width:calc(100% - 28px);display:flex;flex-direction:column;gap:12px;}
+.flbl{color:#ffaaaa;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;}
+.finp,.fsel{width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(200,0,26,.35);background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-weight:600;font-family:var(--ff);outline:none;-webkit-appearance:none;appearance:none;}
+.finp::placeholder{color:rgba(255,255,255,.3);}
+.finp:focus,.fsel:focus{border-color:var(--r);background:rgba(255,255,255,.13);}
+.fsel option{background:#1a0006;}
+.grow{display:flex;gap:8px;}
+.gbtn{flex:1;padding:10px 6px;border-radius:10px;border:1.5px solid rgba(200,0,26,.3);background:rgba(255,255,255,.06);color:#888;font-size:22px;cursor:pointer;text-align:center;transition:all .2s;}
+.gbtn.A{border-color:var(--r);background:rgba(200,0,26,.22);color:#fff;}
+.glbl{font-size:9px;font-weight:700;display:block;margin-top:2px;color:inherit;}
+.btn-r{width:100%;padding:14px;border-radius:30px;border:none;background:var(--r);color:#fff;font-family:var(--fb);font-size:22px;letter-spacing:2px;cursor:pointer;box-shadow:0 4px 22px rgba(200,0,26,.5);transition:transform .12s;margin-top:4px;}
+.btn-r:active{transform:scale(.97);}
+.btn-r:disabled{background:#3a3a3a;box-shadow:none;cursor:not-allowed;color:#777;}
+.btn-s{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);font-size:12px;font-weight:700;padding:10px 22px;border-radius:22px;cursor:pointer;font-family:var(--ff);}
+.btn-s:active{background:rgba(255,255,255,.1);}
+#s-card{gap:0;padding-top:18px;}
+.pcard{background:var(--card);border:2px solid var(--r);border-radius:20px;padding:22px 20px;width:calc(100% - 28px);text-align:center;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(200,0,26,.25);}
+.pcard::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(200,0,26,.14),transparent 68%);pointer-events:none;}
+.cbadge{background:var(--r);color:#fff;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+.cfig{font-size:80px;line-height:1;margin:8px 0;}
+.cname{font-family:var(--fb);font-size:28px;color:var(--gold);letter-spacing:1px;}
+.crole{display:inline-flex;align-items:center;gap:7px;background:rgba(200,0,26,.18);border:1px solid var(--r);border-radius:20px;padding:5px 15px;margin:8px 0;}
+.crole-i{font-size:18px;}
+.crole-t{color:#fff;font-size:13px;font-weight:700;}
+.carea{color:#ffaaaa;font-size:11px;margin-top:3px;}
+.cmotto{color:rgba(255,255,255,.65);font-size:10px;font-style:italic;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);line-height:1.6;}
+.clogos{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;}
+.mloge{background:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;}
+.mlogcc{background:var(--r);border-radius:6px;padding:4px 9px;}
+.mlogcc-t{font-family:'Georgia',serif;font-style:italic;font-weight:900;font-size:11px;color:#fff;}
+#s-game{justify-content:flex-start;padding:0;}
+#gc{display:block;width:100%;touch-action:none;}
+#fc{position:absolute;inset:0;width:100%;pointer-events:none;z-index:8;}
+#hud{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(0,0,0,.75);border-bottom:2px solid var(--r);z-index:10;}
+.hb{text-align:center;}
+.hl{color:#ffaaaa;font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;}
+.hv{color:#fff;font-size:20px;font-weight:900;font-family:var(--fb);}
+.hn{color:var(--gold);font-size:10px;font-weight:700;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#comb{position:absolute;top:56px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;color:var(--gold);background:rgba(0,0,0,.8);padding:3px 14px;border-radius:18px;display:none;z-index:10;border:1px solid var(--gold);white-space:nowrap;}
+#mf{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-size:26px;font-weight:900;color:#fff;text-shadow:0 2px 10px #000;pointer-events:none;z-index:20;opacity:0;transition:opacity .25s;text-align:center;white-space:nowrap;font-family:var(--fb);letter-spacing:1px;}
+#bcat{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.82);color:#fff;font-size:10px;padding:3px 13px;border-radius:18px;z-index:10;pointer-events:none;display:none;}
+#live-panel{position:absolute;top:52px;right:0;width:148px;background:rgba(6,0,2,.92);border-left:2px solid var(--r);border-bottom:2px solid var(--r);border-radius:0 0 0 10px;z-index:15;padding:7px 8px;max-height:200px;overflow-y:auto;}
+#live-panel.H{display:none;}
+.lp-title{color:var(--gold);font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+.lp-row{display:flex;align-items:center;gap:5px;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.lp-pos{font-size:10px;width:16px;text-align:center;color:#ffaaaa;}
+.lp-info{flex:1;min-width:0;}
+.lp-name{font-size:10px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lp-area{font-size:8px;color:#ffaaaa;}
+.lp-pts{font-size:11px;font-weight:900;color:var(--gold);font-family:var(--fb);}
+.lp-empty{color:#555;font-size:9px;text-align:center;padding:8px 0;}
+#tov{position:absolute;inset:0;background:rgba(0,0,0,.93);display:flex;align-items:center;justify-content:center;z-index:30;padding:14px;}
+#tov.H{display:none;}
+.tc{background:#0e0003;border:2px solid var(--r);border-radius:15px;padding:20px;width:100%;max-width:400px;color:#fff;}
+.th{font-size:9px;color:var(--r);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:9px;}
+.tq{font-size:14px;font-weight:700;margin-bottom:14px;line-height:1.5;}
+.tops{display:flex;flex-direction:column;gap:8px;}
+.topt{background:rgba(255,255,255,.07);border:1.5px solid #3a3a3a;border-radius:10px;padding:11px 14px;font-size:13px;cursor:pointer;text-align:left;color:#fff;font-family:var(--ff);font-weight:600;-webkit-appearance:none;transition:all .15s;}
+.topt:active{transform:scale(.98);}
+.topt.ok{background:rgba(0,180,0,.22);border-color:#00c800;color:#aaffaa;}
+.topt.no{background:rgba(200,0,26,.22);border-color:var(--r);color:#ffaaaa;}
+.tfb{margin-top:12px;font-size:11px;color:#ffdd88;display:none;line-height:1.5;padding:10px;background:rgba(255,220,100,.08);border-radius:8px;border-left:3px solid var(--gold);}
+.tcont{display:none;margin-top:12px;}
+#s-end{padding-top:18px;gap:0;}
+.ecard{background:var(--card);border:2px solid var(--r);border-radius:20px;padding:20px;width:calc(100% - 28px);text-align:center;margin-bottom:14px;box-shadow:0 0 40px rgba(200,0,26,.2);}
+.estars{font-size:28px;margin-bottom:5px;}
+.efig{font-size:56px;margin:5px 0;}
+.eplayer{color:var(--gold);font-size:26px;font-weight:900;font-family:var(--fb);letter-spacing:1px;}
+.erole{color:#ffaaaa;font-size:11px;margin-bottom:8px;}
+.etitle{font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;}
+.eslbl{color:#ffaaaa;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
+.escore{font-size:54px;font-weight:900;color:var(--r);line-height:1;font-family:var(--fb);margin-bottom:6px;}
+.emsg{color:#ffcccc;font-size:12px;line-height:1.5;}
+.esync{margin-top:10px;font-size:10px;padding:8px;border-radius:8px;background:rgba(255,255,255,.06);}
+.ebtns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+#s-rank{padding-top:20px;gap:0;}
+.rtitle{color:var(--gold);font-size:30px;font-family:var(--fb);letter-spacing:2px;text-align:center;margin-bottom:2px;}
+.rsub{color:#ffaaaa;font-size:10px;text-align:center;margin-bottom:12px;}
+.rtable{width:calc(100% - 28px);}
+.rrow{display:flex;align-items:center;gap:9px;padding:10px 13px;border-radius:10px;margin-bottom:5px;}
+.rrow.g{background:rgba(255,215,0,.14);border:1px solid var(--gold);}
+.rrow.s{background:rgba(192,192,192,.1);border:1px solid #aaa;}
+.rrow.b{background:rgba(205,127,50,.1);border:1px solid #cd7f32;}
+.rrow.n{background:rgba(255,255,255,.05);border:1px solid #222;}
+.rrow.me{border-color:var(--r)!important;box-shadow:0 0 8px rgba(200,0,26,.3);}
+.rpos{font-size:18px;width:28px;text-align:center;}
+.rinfo{flex:1;min-width:0;}
+.rname{color:#fff;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rarea{color:#ffaaaa;font-size:10px;}
+.rpts{color:var(--gold);font-size:16px;font-weight:900;font-family:var(--fb);}
+.rempty{color:#555;font-size:13px;text-align:center;padding:30px 0;}
+.rsync{color:#888;font-size:9px;text-align:center;margin-top:6px;}
+.sdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#00cc44;margin-right:5px;vertical-align:middle;}
+.sdot.off{background:#ff4444;}
+.sdot.wait{background:var(--gold);animation:blink 1s infinite;}
+.sdot.sheets{background:#34a853;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.sheets-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(52,168,83,.15);border:1px solid rgba(52,168,83,.4);border-radius:12px;padding:3px 10px;font-size:9px;color:#34a853;font-weight:700;margin-top:4px;}
+</style>
+</head>
+<body>
+<div id="G">
+
+<!-- ═══ REGISTRO ═══ -->
+<div id="s-reg" class="scr">
+  <div class="brand">
+    <div class="logo-e">
+      <svg width="46" height="46" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="32" fill="white"/>
+        <path d="M10 15 Q32 8 54 15 Q32 22 10 15Z" fill="#C8001A"/>
+        <path d="M10 15 Q32 22 54 15 L54 23 Q32 30 10 23Z" fill="rgba(200,0,26,.28)"/>
+        <path d="M10 23 Q32 30 54 23 Q32 37 10 23Z" fill="#C8001A"/>
+        <path d="M10 23 Q32 37 54 23 L54 31 Q32 40 10 31Z" fill="rgba(200,0,26,.28)"/>
+        <path d="M10 31 Q32 40 54 31 Q32 46 10 31Z" fill="#C8001A"/>
+        <text x="32" y="59" font-family="Arial" font-weight="700" font-size="9" fill="#C8001A" text-anchor="middle">Embol</text>
+      </svg>
+    </div>
+    <div class="logo-cc">
+      <div class="cc-s">Coca‑Cola</div>
+      <span class="cc-t">FOOTBALL FESTIVAL</span>
+    </div>
+  </div>
+  <div class="gtitle">EL ARCO DE<br/><span>LA HIGIENE</span></div>
+  <div class="gsub">
+    ⚽ Feria de Inocuidad — EMBOL S.A.<br/>
+    <span id="sync-st"><span class="sdot wait"></span>Conectando a Google Sheets...</span><br/>
+    <span class="sheets-badge">📊 Google Sheets · Ranking en vivo</span>
+  </div>
+  <div class="fcard">
+    <div>
+      <div class="flbl">👤 Tu nombre</div>
+      <input class="finp" id="inp-n" type="text" maxlength="22" placeholder="Escribe tu nombre..."/>
+    </div>
+    <div>
+      <div class="flbl">⚥ Género</div>
+      <div class="grow">
+        <div class="gbtn A" id="gb-m" onclick="selG('M')">👨<span class="glbl">Hombre</span></div>
+        <div class="gbtn" id="gb-f" onclick="selG('F')">👩<span class="glbl">Mujer</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="flbl">🏭 Área de trabajo</div>
+      <select class="fsel" id="inp-a">
+        <option value="">Selecciona tu área...</option>
+        <option value="Producción">Producción</option>
+        <option value="Calidad">Calidad</option>
+        <option value="Mantenimiento">Mantenimiento</option>
+        <option value="Clean Team">Clean Team</option>
+        <option value="Bodega">Bodega</option>
+      </select>
+    </div>
+    <button class="btn-r" id="btn-go" onclick="goCard()" disabled>VER MI TARJETA ▶</button>
+  </div>
+  <div style="height:8px;"></div>
+  <button class="btn-s" onclick="goRank()">🏆 Ver Ranking Global</button>
+  <div style="height:12px;"></div>
+</div>
+
+<!-- ═══ TARJETA ═══ -->
+<div id="s-card" class="scr H">
+  <div class="pcard">
+    <div class="cbadge">⚽ EMBOL FOOTBALL FESTIVAL</div>
+    <div class="cfig" id="c-fig">🧍</div>
+    <div class="cname" id="c-name">JUGADOR</div>
+    <div class="crole"><span class="crole-i" id="c-ri">⚽</span><span class="crole-t" id="c-rt">Rol</span></div>
+    <div class="carea" id="c-area">Área</div>
+    <div class="cmotto" id="c-motto"></div>
+    <div class="clogos">
+      <div class="mloge">
+        <svg width="28" height="28" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="white"/><path d="M10 15 Q32 8 54 15 Q32 22 10 15Z" fill="#C8001A"/><path d="M10 23 Q32 30 54 23 Q32 37 10 23Z" fill="#C8001A"/><path d="M10 31 Q32 40 54 31 Q32 46 10 31Z" fill="#C8001A"/></svg>
+      </div>
+      <div class="mlogcc"><div class="mlogcc-t">Coca‑Cola</div></div>
+    </div>
+  </div>
+  <button class="btn-r" style="width:calc(100% - 28px);margin-top:16px;" onclick="startGame()">⚽ ¡ENTRAR AL CAMPO!</button>
+  <button class="btn-s" style="margin-top:10px;" onclick="show('s-reg')">← Volver</button>
+</div>
+
+<!-- ═══ JUEGO ═══ -->
+<div id="s-game" class="scr H">
+  <canvas id="gc"></canvas>
+  <canvas id="fc"></canvas>
+  <div id="hud">
+    <div class="hb"><div class="hl">Puntos</div><div class="hv" id="h-s">0</div></div>
+    <div class="hb"><div class="hn" id="h-n">Jugador</div><div class="hl">Ronda <span id="h-r">1</span></div></div>
+    <div class="hb"><div class="hl">Vidas</div><div class="hv" id="h-l">❤️❤️❤️</div></div>
+  </div>
+  <div id="live-panel" class="H">
+    <div class="lp-title">📊 Top Global</div>
+    <div id="lp-body"><div class="lp-empty">Cargando...</div></div>
+  </div>
+  <div id="comb">🔥 COMBO x<span id="cn">2</span></div>
+  <div id="mf"></div>
+  <div id="bcat"></div>
+  <div id="tov" class="H">
+    <div class="tc">
+      <div class="th">⚽ PREGUNTA DE INOCUIDAD — EMBOL</div>
+      <div class="tq" id="t-q"></div>
+      <div class="tops" id="t-o"></div>
+      <div class="tfb" id="t-fb"></div>
+      <div class="tcont" id="t-c">
+        <button class="btn-r" style="font-size:16px;padding:12px;" onclick="rTrivia()">Continuar ▶</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FIN ═══ -->
+<div id="s-end" class="scr H">
+  <div class="ecard">
+    <div class="estars" id="e-st">⭐⭐⭐</div>
+    <div class="efig" id="e-fig">🧍</div>
+    <div class="eplayer" id="e-pl">JUGADOR</div>
+    <div class="erole" id="e-rl">Área</div>
+    <div class="etitle" id="e-ti">¡Campeón!</div>
+    <div class="eslbl">Puntaje final</div>
+    <div class="escore" id="e-sc">0</div>
+    <div class="emsg" id="e-ms"></div>
+    <div class="esync" id="e-sync">📊 Guardando en Google Sheets...</div>
+  </div>
+  <div class="ebtns">
+    <button class="btn-r" style="max-width:200px;" onclick="startGame()">Jugar de nuevo</button>
+    <button class="btn-s" onclick="goRank()">🏆 Ranking</button>
+    <button class="btn-s" onclick="show('s-reg')">Menú</button>
+  </div>
+</div>
+
+<!-- ═══ RANKING ═══ -->
+<div id="s-rank" class="scr H">
+  <div class="rtitle">🏆 Ranking Global</div>
+  <div class="rsub" id="r-sub">📊 En vivo desde Google Sheets</div>
+  <div class="rtable" id="r-body"><div class="rempty">Cargando...</div></div>
+  <div class="rsync" id="r-sync"><span class="sdot wait"></span>Conectando...</div>
+  <button class="btn-r" style="margin-top:14px;max-width:260px;" onclick="goRank()">↻ Actualizar</button>
+  <button class="btn-s" style="margin-top:10px;" onclick="show('s-reg')">← Volver</button>
+</div>
+
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+//  GOOGLE SHEETS API
+// ══════════════════════════════════════════════
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbz_RoQDzD5W_nKAgff2nRR5M1vYfaX7RXTG6yFbPSqsUxy8LURmgE7EsG5IrHniO-wesQ/exec';
+
+let globalRank = [];
+let sheetsOk = false;
+let myName = '';
+
+async function loadRanking() {
+  try {
+    const res = await fetch(SHEETS_URL, { method: 'GET', mode: 'cors' });
+    const data = await res.json();
+    if (data.ok && data.ranking) {
+      globalRank = data.ranking;
+      sheetsOk = true;
+    }
+  } catch(e) {
+    sheetsOk = false;
+  }
+}
+
+async function saveToSheets(name, gender, area, role, score, stars) {
+  const device = navigator.userAgent.includes('Mobile') ? 'Móvil' : 'Escritorio';
+  try {
+    const payload = { name, gender, area, role, score, stars, device };
+    const res = await fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (data.ok) {
+      sheetsOk = true;
+      if (data.ranking) globalRank = data.ranking;
+      return true;
+    }
+    return false;
+  } catch(e) {
+    sheetsOk = false;
+    return false;
+  }
+}
+
+function setSyncUI(st) {
+  const el = _('sync-st'); if (!el) return;
+  const msgs = {
+    ok:   '<span class="sdot sheets"></span>📊 Google Sheets conectado ✓',
+    wait: '<span class="sdot wait"></span>Conectando a Google Sheets...',
+    off:  '<span class="sdot off"></span>Sin conexión — intenta de nuevo'
+  };
+  el.innerHTML = msgs[st] || msgs.wait;
+}
+
+// ══════════════════════════════════════════════
+//  AUDIO
+// ══════════════════════════════════════════════
+let AC;
+function gAC(){if(!AC)try{AC=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}return AC;}
+function rAC(){const a=gAC();if(a&&a.state==='suspended')a.resume();}
+function tone(f,d,t='sine',v=.22,dl=0){
+  try{const a=gAC();if(!a)return;
+  const o=a.createOscillator(),g=a.createGain();
+  o.connect(g);g.connect(a.destination);o.type=t;
+  o.frequency.setValueAtTime(f,a.currentTime+dl);
+  g.gain.setValueAtTime(v,a.currentTime+dl);
+  g.gain.exponentialRampToValueAtTime(.001,a.currentTime+dl+d);
+  o.start(a.currentTime+dl);o.stop(a.currentTime+dl+d+.02);}catch(e){}
+}
+const SFX={
+  catch:()=>{tone(440,.07,'square',.17);tone(660,.1,'sine',.21,.06);tone(880,.12,'sine',.17,.12);},
+  miss:()=>{tone(200,.28,'sawtooth',.24);tone(150,.32,'sawtooth',.19,.13);},
+  combo:()=>{[523,659,784,1047].forEach((f,i)=>tone(f,.12,'sine',.23,i*.08));},
+  trivia:()=>{[523,523,659,784].forEach((f,i)=>tone(f,.15,'sine',.27,i*.1));tone(1047,.4,'sine',.32,.44);},
+  wrong:()=>{tone(180,.42,'sawtooth',.26);tone(140,.42,'sawtooth',.21,.2);},
+  crowd:(v=1)=>{for(let i=0;i<5;i++)tone(55+Math.random()*180,.5+Math.random()*.4,'sine',.032*v*Math.random(),Math.random()*.1);},
+  win:()=>{[523,659,784,1047,784,880,1047].forEach((f,i)=>tone(f,.18,'sine',.29,i*.13));SFX.crowd(3);}
+};
+
+// ══════════════════════════════════════════════
+//  FUEGOS ARTIFICIALES
+// ══════════════════════════════════════════════
+let fwCtx,fwW,fwH,parts=[];
+function setupFW(){const c=_('fc'),gc=_('gc');c.width=gc.width;c.height=gc.height;fwCtx=c.getContext('2d');fwW=c.width;fwH=c.height;}
+function launchFW(x,y){
+  const cols=['#C8001A','#FFD700','#fff','#ff6b6b','#ffcc00','#00cc88','#ff9900'];
+  for(let i=0;i<48;i++){const a=Math.random()*Math.PI*2,s=2+Math.random()*5;
+    parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,col:cols[Math.floor(Math.random()*cols.length)],life:1,decay:.017+Math.random()*.018,r:2+Math.random()*2.8});}
+}
+function launchMFW(){if(!fwW)return;[[.2,.2],[.5,.15],[.8,.2],[.35,.35],[.65,.3]].forEach(([px,py],i)=>setTimeout(()=>launchFW(fwW*px,fwH*py),i*180));}
+function updFW(){
+  if(!fwCtx)return;fwCtx.clearRect(0,0,fwW,fwH);
+  parts=parts.filter(p=>p.life>0);
+  parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.08;p.life-=p.decay;
+    fwCtx.globalAlpha=Math.max(0,p.life);fwCtx.beginPath();fwCtx.arc(p.x,p.y,p.r,0,Math.PI*2);fwCtx.fillStyle=p.col;fwCtx.fill();});
+  fwCtx.globalAlpha=1;
+}
+
+// ══════════════════════════════════════════════
+//  DATOS ÁREA
+// ══════════════════════════════════════════════
+const AREAS={
+  'Producción':   {role:'Mediocampista',icon:'⚙️',figM:'🧑‍🏭',figF:'👩‍🏭',motto:'El motor del juego. Cada bebida producida con calidad es un gol a favor del equipo.'},
+  'Calidad':      {role:'Árbitro',      icon:'🟡',figM:'👨‍💼',figF:'👩‍💼',motto:'Las reglas del juego las defines tú. Tu criterio garantiza que cada producto sea seguro.'},
+  'Mantenimiento':{role:'Defensor',     icon:'🔧',figM:'👷', figF:'👷‍♀️',motto:'El defensor del campo. Sin tu trabajo, las máquinas no están listas para el partido.'},
+  'Clean Team':   {role:'Delantero',    icon:'🧹',figM:'🧑‍🔧',figF:'👩‍🔧',motto:'¡Al ataque! Preparas la cancha antes del partido. Sin ti el campo no está listo.'},
+  'Bodega':       {role:'Lateral',      icon:'📦',figM:'🧑‍💼',figF:'👩‍💼',motto:'El utilero del equipo. Controlas que todo lo que entra llegue en perfectas condiciones.'}
+};
+
+// ══════════════════════════════════════════════
+//  TRIVIA (15 preguntas oficiales EMBOL)
+// ══════════════════════════════════════════════
+const TRIVIA=[
+  {q:"¿Cuáles son los tres tipos de peligros que afectan la inocuidad?",
+   opts:["Biológicos, Físicos y Químicos","Microbiológicos, Mecánicos y Eléctricos","Bacteriológicos, Estructurales y Orgánicos","Virales, Minerales y Sintéticos"],
+   ans:0,fb:"Los tres tipos son: Biológicos (bacterias, virus, hongos), Físicos (cabellos, uñas, tornillos) y Químicos (detergentes, lubricantes, alérgenos)."},
+  {q:"Menciona dos ejemplos de peligros biológicos.",
+   opts:["Bacterias y virus","Tornillos y cabellos","Detergentes y lubricantes","Alérgenos y fragmentos"],
+   ans:0,fb:"Los peligros biológicos incluyen bacterias, virus y hongos que amenazan la inocuidad del producto."},
+  {q:"¿Qué tipo de peligro representan los detergentes y lubricantes?",
+   opts:["Biológico","Físico","Químico","Ergonómico"],
+   ans:2,fb:"Los detergentes, lubricantes y material con alérgenos son peligros QUÍMICOS que requieren atención constante."},
+  {q:"¿Qué función cumple el área de Calidad en la inocuidad?",
+   opts:["Controla herramientas y piezas","Cuida las reglas del juego garantizando productos seguros","Prepara la cancha antes del partido","Controla las materias primas que ingresan"],
+   ans:1,fb:"Calidad es el árbitro: cuida las reglas garantizando que cada producto sea seguro y de alta calidad."},
+  {q:"¿Por qué es obligatorio cubrir el cabello, barba y bigote?",
+   opts:["Por estética e imagen","Para evitar que caigan en la cadena productiva como contaminante físico","Por regulación sindical","Para mantener el uniforme limpio"],
+   ans:1,fb:"Es obligatorio para evitar que caigan en la cadena productiva y generen contaminación física en el producto."},
+  {q:"¿Cuál es la principal vía de contaminación en la producción?",
+   opts:["El aire del ambiente","Los equipos mal lubricados","Las manos","El uniforme descuidado"],
+   ans:2,fb:"Las manos son la principal vía de contaminación. ¡Mantenerlas limpias es la atajada más importante!"},
+  {q:"Menciona tres momentos clave para el lavado de manos.",
+   opts:["Al inicio, al mediodía y al final","Antes de ingresar, después del baño y después de comer","Solo cuando estén visiblemente sucias","Cada hora exacta durante el turno"],
+   ans:1,fb:"Los momentos clave son: antes de ingresar, después del baño y después de comer. ¡Cada lavado es una atajada!"},
+  {q:"Nombra dos acciones consideradas 'Tarjeta Amarilla'.",
+   opts:["Comer en producción y fumar","Manipular el cabello/tocarse la cara y descuidar el uniforme","Usar anillos y masticar chicle","Bolear y ocultar enfermedades"],
+   ans:1,fb:"Tarjeta Amarilla: manipular el cabello/tocarse la cara (contamina) y descuidar el uniforme (vehículo de microbios)."},
+  {q:"Nombra tres acciones consideradas 'Tarjeta Roja'.",
+   opts:["Tocarse la cara, no lavarse manos, cabello sin cubrir","Comer en producción, masticar/fumar/bolear y ocultar enfermedades","Usar celular, llegar tarde y no saludar","Hablar fuerte, correr y no usar uniforme"],
+   ans:1,fb:"Tarjeta Roja: comer en producción, masticar/fumar/bolear en áreas de producción y ocultar enfermedades o heridas."},
+  {q:"¿Qué síntomas deben reportarse obligatoriamente antes de ingresar?",
+   opts:["Solo fiebre alta","Cansancio y dolor de cabeza","Infecciones, heridas abiertas, vómitos y diarrea","Solo síntomas respiratorios"],
+   ans:2,fb:"Obligatorios: infecciones, heridas abiertas, vómitos y diarrea. Reportar protege al equipo, al producto y al consumidor."},
+  {q:"¿Cuál es el rol del área de Mantenimiento en la inocuidad?",
+   opts:["Produce las bebidas verificando calidad","Asegura que máquinas y equipos estén en óptimas condiciones","Controla materias primas que entran","Cuida las reglas del juego"],
+   ans:1,fb:"Mantenimiento son los defensores: aseguran que máquinas y equipos estén en óptimas condiciones para la producción."},
+  {q:"¿Por qué es importante usar un uniforme limpio?",
+   opts:["Por imagen corporativa únicamente","Un uniforme sucio es vehículo de microbios que ponen en riesgo la inocuidad","Para cumplir el reglamento de seguridad","Para identificar el área de trabajo"],
+   ans:1,fb:"El uniforme limpio evita contaminación. Un sucio actúa como vehículo de microbios que pone en riesgo la inocuidad."},
+  {q:"¿Qué responsabilidad tiene el área de Bodega?",
+   opts:["Limpiar las áreas de producción","Controlar que materias primas, insumos y empaques lleguen en perfectas condiciones","Verificar la calidad del producto terminado","Reparar equipos de producción"],
+   ans:1,fb:"Bodega es el utilero: controla que todo lo que entra (materias primas, insumos, empaques) esté en perfectas condiciones."},
+  {q:"Los cabellos, uñas y fragmentos de vidrio son peligros...",
+   opts:["Biológicos","Químicos","Físicos","Microbiológicos"],
+   ans:2,fb:"Son peligros FÍSICOS. Mantener un entorno limpio y seguro es crucial para prevenir estas contaminaciones."},
+  {q:"¿Por qué es importante controlar los peligros químicos?",
+   opts:["Solo para cumplir normas","Para garantizar la seguridad del consumidor y la calidad del producto","Para reducir costos","Para mejorar el sabor"],
+   ans:1,fb:"El control de peligros químicos garantiza la seguridad del consumidor y la calidad de nuestros productos EMBOL."},
+];
+
+const BALLS=[
+  {label:"Manos sucias",type:"bio",color:"#1b6e1b",icon:"🦠"},
+  {label:"Tos/Estornudo",type:"bio",color:"#1b6e1b",icon:"🤧"},
+  {label:"Persona enferma",type:"bio",color:"#1b6e1b",icon:"🤒"},
+  {label:"Cabello",type:"fis",color:"#1a4fa8",icon:"💈"},
+  {label:"Tornillo",type:"fis",color:"#1a4fa8",icon:"🔩"},
+  {label:"Fragm. vidrio",type:"fis",color:"#1a4fa8",icon:"🔷"},
+  {label:"Detergente",type:"qui",color:"#6a1a9a",icon:"🧪"},
+  {label:"Lubricante",type:"qui",color:"#6a1a9a",icon:"⚙️"},
+  {label:"Alérgeno",type:"qui",color:"#6a1a9a",icon:"⚠️"},
+  {label:"Joyas",type:"fis",color:"#1a4fa8",icon:"💍"},
+  {label:"Comer en prod.",type:"roja",color:"#aa0000",icon:"🍔"},
+  {label:"Fumar/Bolear",type:"roja",color:"#aa0000",icon:"🚫"},
+];
+const TL={bio:"🦠 Peligro Biológico",fis:"⚙️ Peligro Físico",qui:"🧪 Peligro Químico",roja:"🔴 ¡Tarjeta Roja!"};
+
+// ══════════════════════════════════════════════
+//  ESTADO
+// ══════════════════════════════════════════════
+let pName='',pGender='M',pArea='';
+let score,lives,combo,round,bArr,goalie,curX,animId;
+let tQ,tUsed,rTimer,gActive,wTri;
+let cW,cH,fans=[],fanCheer=false,fanCheerT=0;
+
+const _=id=>document.getElementById(id);
+function show(id){['s-reg','s-card','s-game','s-end','s-rank'].forEach(s=>_(s).classList.toggle('H',s!==id));}
+
+// ── INIT ──
+(async()=>{
+  setSyncUI('wait');
+  await loadRanking();
+  setSyncUI(sheetsOk?'ok':'off');
+  setInterval(async()=>{
+    await loadRanking();
+    buildLivePanel();
+    if(!_('s-rank').classList.contains('H'))buildRankUI();
+  },20000);
+})();
+
+// ── FORM ──
+function selG(g){pGender=g;_('gb-m').classList.toggle('A',g==='M');_('gb-f').classList.toggle('A',g==='F');}
+function vForm(){_('btn-go').disabled=!(_('inp-n').value.trim()&&_('inp-a').value);}
+_('inp-n').addEventListener('input',vForm);
+_('inp-a').addEventListener('change',vForm);
+
+function goCard(){
+  rAC();
+  pName=_('inp-n').value.trim()||'Jugador';
+  pArea=_('inp-a').value;
+  buildCard();show('s-card');
+}
+function buildCard(){
+  const d=AREAS[pArea];if(!d)return;
+  const fig=pGender==='F'?d.figF:d.figM;
+  _('c-fig').textContent=fig;
+  _('c-name').textContent=pName.toUpperCase();
+  _('c-ri').textContent=d.icon;
+  _('c-rt').textContent=d.role;
+  _('c-area').textContent='Área: '+pArea;
+  _('c-motto').textContent='"'+d.motto+'"';
+  _('e-fig').textContent=fig;
+}
+
+// ── HINCHAS ──
+function initFans(){
+  fans=[];
+  const cs=['#C8001A','#fff','#FFD700','#cc0000','#ff6644'];
+  for(let i=0;i<58;i++)fans.push({x:8+Math.random()*(cW-16),y:6+Math.random()*50,col:cs[Math.floor(Math.random()*cs.length)],w:Math.random()*Math.PI*2,ws:.04+Math.random()*.045});
+}
+function drawFans(ctx){
+  fanCheerT>0?fanCheerT--:fanCheer=false;
+  fans.forEach(f=>{
+    f.w+=f.ws;
+    const b=fanCheer?Math.abs(Math.sin(f.w))*5.5:Math.abs(Math.sin(f.w))*1.8;
+    const fy=f.y-b;
+    ctx.fillStyle=f.col;ctx.beginPath();ctx.ellipse(f.x,fy+8,3.8,6,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#f5c58a';ctx.beginPath();ctx.arc(f.x,fy,3.2,0,Math.PI*2);ctx.fill();
+    if(fanCheer){ctx.strokeStyle=f.col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(f.x-3,fy+5);ctx.lineTo(f.x-8,fy);ctx.stroke();ctx.beginPath();ctx.moveTo(f.x+3,fy+5);ctx.lineTo(f.x+8,fy);ctx.stroke();}
+  });
+}
+function cheer(d=60){fanCheer=true;fanCheerT=d;SFX.crowd(2);}
+
+// ── JUEGO ──
+function startGame(){
+  rAC();
+  const canvas=_('gc'),root=_('G');
+  cW=root.offsetWidth;cH=Math.min(root.offsetHeight,window.innerHeight);
+  canvas.width=cW;canvas.height=cH;
+  setupFW();initFans();
+  score=0;lives=3;combo=0;round=1;
+  tUsed=new Set();gActive=true;wTri=false;
+  rTimer=0;bArr=[];parts=[];
+  curX=cW/2;
+  goalie={x:cW/2,y:cH-138,w:50,h:76,speed:0};
+  show('s-game');
+  _('tov').classList.add('H');
+  _('live-panel').classList.remove('H');
+  _('h-n').textContent=pName;
+  updHUD();buildLivePanel();
+  canvas.removeEventListener('touchstart',onT);
+  canvas.removeEventListener('touchmove',onTM);
+  canvas.removeEventListener('click',onC);
+  canvas.addEventListener('touchstart',onT,{passive:false});
+  canvas.addEventListener('touchmove',onTM,{passive:false});
+  canvas.addEventListener('click',onC);
+  cancelAnimationFrame(animId);
+  loop();
+}
+
+function onT(e){e.preventDefault();rAC();const r=e.target.getBoundingClientRect();const tx=(e.touches[0].clientX-r.left)*(cW/r.width);const ty=(e.touches[0].clientY-r.top)*(cH/r.height);curX=tx;if(!wTri&&gActive)hit(tx,ty);}
+function onTM(e){e.preventDefault();const r=e.target.getBoundingClientRect();curX=(e.touches[0].clientX-r.left)*(cW/r.width);}
+function onC(e){rAC();if(wTri||!gActive)return;const r=e.target.getBoundingClientRect();hit((e.clientX-r.left)*(cW/r.width),(e.clientY-r.top)*(cH/r.height));}
+function hit(cx,cy){for(let i=bArr.length-1;i>=0;i--){const b=bArr[i];if(b.caught||b.missed)continue;if(Math.hypot(b.x-cx,b.y-cy)<b.r+13){catchB(i);return;}}}
+
+function spawn(){
+  if(bArr.length>=3)return;
+  const b=BALLS[Math.floor(Math.random()*BALLS.length)];
+  const sp=1.1+round*.23+Math.random()*.75;
+  const ag=(Math.random()*40-20)*Math.PI/180;
+  bArr.push({x:55+Math.random()*(cW-110),y:-28,r:24,vx:Math.sin(ag)*sp*.5,vy:sp,label:b.label,type:b.type,color:b.color,icon:b.icon,spin:0,dspin:(Math.random()-.5)*.14,caught:false,missed:false,alpha:1});
+}
+
+function catchB(i){
+  const b=bArr[i];b.caught=true;combo++;
+  let pts=10*(b.type==='roja'?2:1);
+  if(combo>=3)pts=Math.floor(pts*1.5);
+  score+=pts;
+  if(combo>=3){_('comb').style.display='block';_('cn').textContent=combo;SFX.combo();}else SFX.catch();
+  cheer(40);
+  showMsg(combo>=3?'🔥 COMBO! +'+pts:'✅ ATAJADA +'+pts,'#FFD700');
+  showCat(TL[b.type]);
+  if(!wTri&&Math.random()<.32&&tUsed.size<TRIVIA.length)setTimeout(trigT,600);
+  updHUD();
+}
+function missB(i){
+  bArr[i].missed=true;lives=Math.max(0,lives-1);combo=0;
+  _('comb').style.display='none';SFX.miss();
+  showMsg('⛔ ¡GOL EN CONTRA!','#ff4444');
+  updHUD();if(lives<=0)setTimeout(endGame,900);
+}
+function trigT(){
+  const av=TRIVIA.map((_,i)=>i).filter(i=>!tUsed.has(i));
+  if(!av.length)return;
+  const qi=av[Math.floor(Math.random()*av.length)];tUsed.add(qi);tQ=TRIVIA[qi];wTri=true;
+  _('t-q').textContent=tQ.q;
+  const o=_('t-o');o.innerHTML='';
+  tQ.opts.forEach((op,i)=>{const b=document.createElement('button');b.className='topt';b.textContent=op;b.addEventListener('click',()=>ansT(i,b));o.appendChild(b);});
+  _('t-fb').style.display='none';_('t-c').style.display='none';
+  _('tov').classList.remove('H');
+}
+function ansT(i,btn){
+  document.querySelectorAll('.topt').forEach(o=>{o.onclick=null;o.style.pointerEvents='none';});
+  if(i===tQ.ans){btn.classList.add('ok');score+=20;combo++;SFX.trivia();cheer(120);launchMFW();showMsg('🏆 +20 TRIVIA!','#00cc44');_('t-fb').textContent='⚽ ¡Gol de conocimiento! +20 pts — '+tQ.fb;}
+  else{btn.classList.add('no');document.querySelectorAll('.topt')[tQ.ans].classList.add('ok');SFX.wrong();_('t-fb').textContent='❌ '+tQ.fb;}
+  _('t-fb').style.display='block';_('t-c').style.display='block';updHUD();
+}
+function rTrivia(){wTri=false;_('tov').classList.add('H');}
+function showMsg(t,c){const e=_('mf');e.textContent=t;e.style.color=c;e.style.opacity='1';clearTimeout(e._t);e._t=setTimeout(()=>e.style.opacity='0',1300);}
+function showCat(t){const e=_('bcat');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',1600);}
+function updHUD(){
+  _('h-s').textContent=score;_('h-r').textContent=round;
+  const h=['','❤️','❤️❤️','❤️❤️❤️'];_('h-l').textContent=h[Math.max(0,Math.min(3,lives))];
+}
+
+async function endGame(){
+  gActive=false;cancelAnimationFrame(animId);
+  _('live-panel').classList.add('H');
+  const d=AREAS[pArea]||{};
+  const fig=pGender==='F'?(d.figF||'👩'):(d.figM||'👨');
+  let stars,starsN,title,emsg;
+  if(score>=200){stars='⭐⭐⭐';starsN=3;title='¡CAMPEÓN DE INOCUIDAD!';emsg='Eres el mejor defensor del arco. ¡El producto EMBOL está protegido!';}
+  else if(score>=100){stars='⭐⭐';starsN=2;title='¡Gran defensa, arquero!';emsg='Buena actuación. Sigue reforzando las buenas prácticas de inocuidad.';}
+  else{stars='⭐';starsN=1;title='¡A entrenar más!';emsg='Repasa los peligros biológicos, físicos y químicos y vuelve al campo.';}
+  _('e-st').textContent=stars;_('e-pl').textContent=pName.toUpperCase();
+  _('e-rl').textContent=(d.role||'')+(pArea?' — '+pArea:'');
+  _('e-fig').textContent=fig;_('e-ti').textContent=title;
+  _('e-sc').textContent=score+' pts';_('e-ms').textContent=emsg;
+  _('e-sync').textContent='📊 Guardando en Google Sheets...';
+  if(score>=150){SFX.win();launchMFW();setTimeout(launchMFW,900);}
+  show('s-end');
+  const ok=await saveToSheets(pName,pGender,pArea,d.role||'',score,starsN);
+  if(ok){
+    _('e-sync').textContent='✅ Puntaje guardado en Google Sheets correctamente';
+    _('e-sync').style.color='#34a853';
+  }else{
+    _('e-sync').textContent='⚠️ Sin conexión — revisa tu internet e intenta de nuevo';
+    _('e-sync').style.color='#ffaaaa';
+  }
+}
+
+// ── LOOP ──
+function loop(){if(!gActive)return;update();drawFrame();updFW();animId=requestAnimationFrame(loop);}
+function update(){
+  if(wTri)return;
+  rTimer++;if(rTimer>420){round=Math.min(round+1,5);rTimer=0;}
+  if(Math.random()<.013+round*.004)spawn();
+  const dx=curX-goalie.x;goalie.speed+=dx*.09;goalie.speed*=.68;
+  goalie.x=Math.max(34,Math.min(cW-34,goalie.x+goalie.speed));
+  for(let i=bArr.length-1;i>=0;i--){
+    const b=bArr[i];
+    if(b.caught){b.alpha-=.07;if(b.alpha<=0)bArr.splice(i,1);continue;}
+    if(b.missed){b.alpha-=.05;if(b.alpha<=0)bArr.splice(i,1);continue;}
+    b.x+=b.vx;b.y+=b.vy;b.spin+=b.dspin;
+    if(b.x<b.r){b.x=b.r;b.vx=Math.abs(b.vx);}
+    if(b.x>cW-b.r){b.x=cW-b.r;b.vx=-Math.abs(b.vx);}
+    if(!b.caught&&!b.missed&&b.y+b.r>goalie.y+8&&b.y<goalie.y+goalie.h-8&&b.x>goalie.x-goalie.w/2-b.r&&b.x<goalie.x+goalie.w/2+b.r){catchB(i);continue;}
+    if(b.y>cH+20&&!b.missed)missB(i);
+  }
+}
+
+function drawFrame(){
+  const cv=_('gc'),ctx=cv.getContext('2d'),W=cW,H=cH;
+  ctx.clearRect(0,0,W,H);
+  const sky=ctx.createLinearGradient(0,0,0,H);
+  sky.addColorStop(0,'#030002');sky.addColorStop(.25,'#0a0018');sky.addColorStop(.42,'#180002');sky.addColorStop(.44,'#156800');sky.addColorStop(1,'#0a3200');
+  ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
+  drawStands(ctx,W,H);drawLights(ctx,W,H);
+  ctx.strokeStyle='rgba(255,255,255,.11)';ctx.lineWidth=1;
+  for(let y=H*.5;y<H;y+=30){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  ctx.strokeStyle='rgba(255,255,255,.15)';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.arc(W/2,H,68,Math.PI,0);ctx.stroke();
+  drawGoal(ctx,W,H);
+  bArr.forEach(b=>drawBall(ctx,b));
+  drawGoalie(ctx,goalie.x,goalie.y);
+  ctx.strokeStyle='rgba(255,255,255,.38)';ctx.lineWidth=1.5;
+  const cy=H-44;
+  ctx.beginPath();ctx.arc(curX,cy,13,0,Math.PI*2);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(curX-18,cy);ctx.lineTo(curX+18,cy);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(curX,cy-18);ctx.lineTo(curX,cy+18);ctx.stroke();
+}
+function drawStands(ctx,W,H){
+  ctx.fillStyle='#120004';ctx.fillRect(0,0,W,70);
+  ctx.fillStyle='#260008';ctx.fillRect(0,0,W/2,66);
+  ctx.fillStyle='#160004';ctx.fillRect(W/2,0,W/2,66);
+  ctx.strokeStyle='rgba(0,0,0,.22)';ctx.lineWidth=1;
+  for(let y=8;y<68;y+=8){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  ctx.fillStyle='rgba(200,0,26,.9)';ctx.fillRect(W/2-72,3,144,20);
+  ctx.fillStyle='#fff';ctx.font='bold 11px Montserrat,Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('EMBOL · INOCUIDAD',W/2,13);
+  bFlag(ctx,34,14,'#C8001A','¡GOL!');bFlag(ctx,W-82,14,'#C8001A','EMBOL');
+  drawFans(ctx);
+}
+function bFlag(ctx,x,y,c,t){ctx.fillStyle=c;ctx.fillRect(x,y,46,16);ctx.strokeStyle='rgba(255,255,255,.4)';ctx.lineWidth=.7;ctx.strokeRect(x,y,46,16);ctx.fillStyle='#fff';ctx.font='bold 8px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(t,x+23,y+8);}
+function drawLights(ctx,W,H){
+  [[22,70],[W-22,70]].forEach(([lx,ly])=>{
+    ctx.strokeStyle='#666';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(lx,ly-24);ctx.stroke();
+    const g=ctx.createRadialGradient(lx,ly-24,1,lx,ly-24,40);g.addColorStop(0,'rgba(255,240,150,.22)');g.addColorStop(1,'rgba(255,240,150,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(lx,ly-24,40,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#FFD700';ctx.fillRect(lx-7,ly-28,14,5);
+  });
+}
+function drawGoal(ctx,W,H){
+  const ax=W/2,ay=H-200,aw=Math.min(222,W*.74),ah=132;
+  ctx.strokeStyle='rgba(255,255,255,.13)';ctx.lineWidth=.8;
+  for(let nx=ax-aw/2;nx<=ax+aw/2;nx+=18){ctx.beginPath();ctx.moveTo(nx,ay);ctx.lineTo(nx,ay+ah);ctx.stroke();}
+  for(let ny=ay;ny<=ay+ah;ny+=18){ctx.beginPath();ctx.moveTo(ax-aw/2,ny);ctx.lineTo(ax+aw/2,ny);ctx.stroke();}
+  ctx.strokeStyle='#fff';ctx.lineWidth=3.5;ctx.strokeRect(ax-aw/2,ay,aw,ah);
+  ctx.strokeStyle='#C8001A';ctx.lineWidth=6;ctx.beginPath();ctx.moveTo(ax-aw/2,ay);ctx.lineTo(ax+aw/2,ay);ctx.stroke();
+  ctx.strokeStyle='rgba(255,255,255,.45)';ctx.lineWidth=1.8;ctx.beginPath();ctx.moveTo(ax-aw/2,ay);ctx.lineTo(ax+aw/2,ay);ctx.stroke();
+  ctx.save();
+  ctx.font='bold 11px Bebas Neue,Arial Black';ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.shadowColor='#C8001A';ctx.shadowBlur=6;
+  ctx.fillText('EMBOL',ax-34,ay-14);ctx.font='italic bold 10px Georgia,serif';ctx.fillStyle='#FFD700';ctx.fillText('Coca-Cola',ax+34,ay-14);
+  ctx.shadowBlur=0;ctx.restore();
+}
+function lighten(hex){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return`rgb(${Math.min(255,r+60)},${Math.min(255,g+60)},${Math.min(255,b+60)})`;}
+function drawBall(ctx,b){
+  ctx.save();ctx.globalAlpha=b.alpha;ctx.translate(b.x,b.y);ctx.rotate(b.spin);
+  ctx.beginPath();ctx.arc(0,0,b.r,0,Math.PI*2);
+  const bg=ctx.createRadialGradient(-b.r*.3,-b.r*.3,1,0,0,b.r);bg.addColorStop(0,lighten(b.color));bg.addColorStop(1,b.color);
+  ctx.fillStyle=bg;ctx.fill();ctx.strokeStyle='rgba(255,255,255,.35)';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.rotate(-b.spin);ctx.font=`${b.r}px serif`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(b.icon,0,1);
+  ctx.font='bold 8px Montserrat,Arial';ctx.fillStyle='#fff';ctx.textAlign='center';ctx.shadowColor='rgba(0,0,0,.8)';ctx.shadowBlur=3;ctx.fillText(b.label,0,b.r+10);ctx.shadowBlur=0;
+  ctx.restore();
+}
+function drawGoalie(ctx,x,y){
+  ctx.save();ctx.translate(x,y);
+  ctx.beginPath();ctx.ellipse(0,74,22,5,0,0,Math.PI*2);ctx.fillStyle='rgba(0,0,0,.28)';ctx.fill();
+  ctx.fillStyle='#111';ctx.fillRect(-11,50,9,23);ctx.fillRect(2,50,9,23);
+  ctx.fillStyle='#C8001A';ctx.fillRect(-13,68,12,8);ctx.fillRect(2,68,12,8);
+  const jg=ctx.createLinearGradient(-15,18,15,50);jg.addColorStop(0,'#e81828');jg.addColorStop(1,'#9a0010');
+  ctx.fillStyle=jg;ctx.beginPath();ctx.roundRect(-15,18,30,32,5);ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.18)';ctx.fillRect(-2,18,4,32);
+  ctx.save();
+  ctx.font='italic bold 5.5px Georgia,serif';ctx.fillStyle='rgba(255,255,255,.94)';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Coca-Cola',0,26);
+  ctx.font='bold 4.5px Montserrat,Arial';ctx.fillStyle='rgba(255,255,255,.7)';ctx.fillText('EMBOL',0,33);ctx.restore();
+  ctx.fillStyle='#C8001A';ctx.beginPath();ctx.ellipse(-19,32,4.5,15,-0.28,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(19,32,4.5,15,.28,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#FFD700';ctx.strokeStyle='rgba(0,0,0,.3)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.arc(-22,47,7.5,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.beginPath();ctx.arc(22,47,7.5,0,Math.PI*2);ctx.fill();ctx.stroke();
+  ctx.fillStyle='#f5c58a';ctx.beginPath();ctx.arc(0,7,12,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#C8001A';ctx.beginPath();ctx.arc(0,7,12,Math.PI,0);ctx.fill();ctx.fillRect(-12,5,24,5);ctx.fillRect(-15,8,30,4);
+  ctx.fillStyle='#333';ctx.beginPath();ctx.arc(-4,11,1.8,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(4,11,1.8,0,Math.PI*2);ctx.fill();
+  ctx.restore();
+}
+
+// ── RANKING UI ──
+function buildLivePanel(){
+  const b=_('lp-body');
+  if(!globalRank.length){b.innerHTML='<div class="lp-empty">Sin datos aún</div>';return;}
+  const medals=['🥇','🥈','🥉'];
+  b.innerHTML=globalRank.slice(0,5).map((e,i)=>`
+    <div class="lp-row">
+      <div class="lp-pos">${i<3?medals[i]:'#'+(i+1)}</div>
+      <div class="lp-info"><div class="lp-name">${e.name}</div><div class="lp-area">${e.area||''}</div></div>
+      <div class="lp-pts">${e.score}</div>
+    </div>`).join('');
+}
+async function goRank(){
+  show('s-rank');
+  _('r-sync').innerHTML='<span class="sdot wait"></span>Cargando desde Google Sheets...';
+  await loadRanking();buildRankUI();
+}
+function buildRankUI(){
+  const medals=['🥇','🥈','🥉'];const cls=['g','s','b'];
+  const b=_('r-body');
+  if(!globalRank.length){
+    b.innerHTML='<div class="rempty">¡Aún no hay campeones!<br/>Sé el primero en jugar.</div>';
+  }else{
+    b.innerHTML=globalRank.map((e,i)=>`
+      <div class="rrow ${i<3?cls[i]:'n'}${e.name===pName?' me':''}">
+        <div class="rpos">${i<3?medals[i]:'#'+(i+1)}</div>
+        <div class="rinfo">
+          <div class="rname">${e.name}${e.name===pName?' 👈':''}</div>
+          <div class="rarea">${e.area||''}</div>
+        </div>
+        <div class="rpts">${e.score} pts</div>
+      </div>`).join('');
+  }
+  const now=new Date();
+  _('r-sync').innerHTML=sheetsOk
+    ?`<span class="sdot sheets"></span>📊 Google Sheets · Act. ${now.toLocaleTimeString('es-BO',{hour:'2-digit',minute:'2-digit'})} · ${globalRank.length} jugadores`
+    :`<span class="sdot off"></span>Sin conexión a Google Sheets`;
+  _('r-sub').textContent=`📊 ${globalRank.length} jugador${globalRank.length!==1?'es':''} · En vivo desde Google Sheets`;
+}
+
+window.addEventListener('resize',()=>{
+  if(!_('s-game').classList.contains('H')&&gActive){
+    const root=_('G');cW=root.offsetWidth;cH=Math.min(root.offsetHeight,window.innerHeight);
+    const c=_('gc');c.width=cW;c.height=cH;setupFW();initFans();goalie.y=cH-138;
+  }
+});
+</script>
+</body>
+</html>
